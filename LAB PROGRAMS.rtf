@@ -1,0 +1,421 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang2057{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\ul\b\f0\fs28\lang9 LAB PROGRAM : 1\par
+\ulnone\b0\fs24 import java.util.Scanner;\par
+class Quadratic\{\par
+    public static void main(String[]args)\{\par
+        Scanner s = new Scanner (System.in);\par
+        System.out.println("enter the value of a\\n");\par
+        double root1, root2;\par
+        double a = s.nextDouble();\par
+        System.out.println("enter the value of b\\n");\par
+        double b = s.nextDouble();\par
+        System.out.println("enter the value of c\\n");\par
+        double c = s.nextDouble();\par
+        double dis = (b*b)-(4*a*c);\par
+        if (dis>0)\par
+        \{ root1 = (-b + Math.sqrt(dis)/(2*a));\par
+            root2 = (-b - Math.sqrt(dis)/(2*a));\par
+            System.out.println("two distinct real roots exits: root1 ="+ root1 +" root2 =" +root2);\par
+        \}\par
+        else if (dis==0)\par
+        \{ root1 = root2 =(-b/(2*a));\par
+            System.out.println("\\n two real and equal roots exits: root1 ="+ root1 +" root2 =" +root2);\par
+        \}\par
+        else\{ System.out.println("\\n no real solution exits");\par
+        \}\par
+    \}\par
+\}\par
+\par
+\ul\b\fs28 LAB PROGRAM : 2\par
+\ulnone\b0\fs24 import java.util.Scanner;\par
+class Student\par
+\{\par
+\tab private String USN;\par
+\tab private String name;\par
+\tab private int n;\par
+\tab private double SGPA = 0;\par
+\tab private int totalCredits = 0;\par
+  private int credits[];\par
+  private double marks[];\par
+\tab Scanner ss = new Scanner(System.in);\par
+\par
+\tab void Details()\par
+\tab\{\par
+\tab System.out.println("Enter USN of the student");\par
+\tab USN = ss.nextLine();\par
+\tab System.out.println("Enter Name of the student");\par
+\tab name = ss.nextLine();\par
+\tab System.out.println("Enter no of subjects");\par
+\tab n = ss.nextInt();\par
+\tab credits = new int[n];\par
+\tab marks = new double[n];\par
+\tab System.out.println("*Enter details of the subjects:*");\par
+\tab for(int i=0;i<n;i++)\par
+\tab\{\par
+\tab\tab System.out.println("Enter credits allotted to the subject "+(i+1));\par
+\tab\tab credits[i] = ss.nextInt();\par
+\tab\tab System.out.println("Enter marks in the subject "+(i+1));\par
+\tab\tab marks[i] = ss.nextInt();\par
+\tab\tab Calculate(credits[i],marks[i],i);\par
+\tab\}\par
+    \}\par
+    void Calculate(int credit,double mark,int j)\par
+    \{\par
+\tab\tab totalCredits = totalCredits + credit;\par
+\tab\tab if(mark>=90&&mark<=100)\par
+\tab\tab\tab SGPA = SGPA + (10*credit);\par
+\tab\tab else if(mark>=80 && mark<=89)\par
+\tab\tab\tab SGPA = SGPA + (9*credit);\par
+\tab\tab else if(mark>=70&&mark<=79)\par
+\tab\tab\tab SGPA = SGPA + (8*credit);\par
+\tab\tab else if(mark>=60&&mark<=69)\par
+\tab\tab\tab SGPA = SGPA + (7*credit);\par
+\tab\tab else if(mark>=50 && mark<=59)\par
+\tab\tab\tab SGPA = SGPA + (6*credit);\par
+\tab\tab else if(mark>=40&&mark<=49)\par
+\tab\tab\tab SGPA = SGPA + (5*credit);\par
+\tab\tab else\par
+\tab\tab\tab System.out.println("Failed in Subject "+(j+1));\par
+\tab\}\par
+\tab void Display()\par
+\tab\{\par
+\tab\tab System.out.println("Details of the Student");\par
+    System.out.println("USN: "+USN);\par
+    System.out.println("Name :"+name);\par
+\tab\tab System.out.println("SGPA of Student "+(SGPA/totalCredits));\par
+\tab\}\par
+\}\par
+class Main\par
+\{\par
+\tab public static void main(String args[])\par
+\tab\{\par
+\tab\tab Student s1 = new Student();\par
+\tab\tab s1.Details();\par
+\tab\tab s1.Display();\par
+\tab\}\par
+\}\par
+\par
+\ul\b\fs28 LAB PROGRAM : 3\par
+\ulnone\b0\fs24 import java.util.Scanner;\par
+\par
+class Book\par
+\{\par
+    private String book_name;\par
+    private String author;\par
+    private double price;\par
+    private int no_of_pages;\par
+\par
+    public Book(String book_name, String author, double price, int no_of_pages) \{\par
+        this.book_name = book_name;\par
+        this.author = author;\par
+        this.price = price;\par
+        this.no_of_pages = no_of_pages;\par
+    \}\par
+\par
+    public String toString()\par
+    \{\par
+        return ("------------BOOK DETAILS---------------\\nBook name:"+ book_name +"\\n"+"Author:"+author+"\\n"+ "Price:"+price+"\\n"+ "Number of Pages:"+no_of_pages+"\\n"+ "---------------------------------------");\par
+    \}\par
+\}\par
+public class Mainb \{\par
+    public static void main(String args[]) \{\par
+        String book_name;\par
+        String author;\par
+        int no_of_pages;\par
+        double price;\par
+\par
+        Scanner sc = new Scanner(System.in);\par
+        int n;\par
+        System.out.print("Enter the number of books:");\par
+        n = sc.nextInt();\par
+        sc.nextLine();\par
+        Book [] b = new Book[n];\par
+        for(int i=0;i<n;i++) \{\par
+            System.out.print("Enter book name:");\par
+            book_name = sc.nextLine();\par
+            System.out.print("Enter author's name:");\par
+            author = sc.nextLine();\par
+            System.out.print("Enter price of book:");\par
+            price = sc.nextDouble();\par
+            System.out.print("Enter the number of pages of book:");\par
+            no_of_pages = sc.nextInt();\par
+            sc.nextLine();\par
+            b[i] = new Book(book_name,author,price,no_of_pages );\par
+            System.out.println(b[i]);\par
+\par
+        \}\par
+    \}\par
+\}\par
+\par
+\ul\b\fs28 LAB PROGRAM : 4\ulnone\b0\fs24\par
+import java.util.Scanner;\par
+\par
+abstract class Shape\par
+\{\par
+    int a;\par
+    int b;\par
+    abstract void printArea();\par
+\par
+    public Shape(int a, int b) \{\par
+        this.a = a;\par
+        this.b = b;\par
+    \}\par
+\}\par
+\par
+class Rectangle extends Shape\par
+\{\par
+    public Rectangle(int a, int b) \{\par
+        super(a, b);\par
+    \}\par
+\par
+    void printArea()\par
+    \{\par
+        System.out.println("Area of rectangle:"+(a*b));\par
+    \}\par
+\}\par
+\par
+class Triangle extends Shape\par
+\{\par
+    public Triangle(int a, int b) \{\par
+        super(a, b);\par
+    \}\par
+\par
+    void printArea() \{\par
+        System.out.println("Area of triangle:"+(a*b));\par
+    \}\par
+\}\par
+\par
+class Circle extends Shape\par
+\{\par
+    public Circle(int a, int b) \{\par
+        super(a, b);\par
+    \}\par
+\par
+    void printArea() \{\par
+        System.out.println("Area of Circle:"+(3.142*a*b));\par
+    \}\par
+\}\par
+\par
+class Area \{\par
+\par
+    public static void main(String[] args) \{\par
+        Scanner sc = new Scanner(System.in);\par
+        System.out.print("Enter length of rectangle:");\par
+        int l_rec = sc.nextInt();\par
+        System.out.print("Enter breadth of rectangle:");\par
+        int b_rec = sc.nextInt();\par
+\par
+        System.out.print("Enter height of triangle:");\par
+        int l_tri = sc.nextInt();\par
+        System.out.print("Enter base of triangle:");\par
+        int b_tri = sc.nextInt();\par
+\par
+        System.out.print("Enter radius of circle:");\par
+        int r_cir = sc.nextInt();\par
+\par
+        Rectangle r = new Rectangle(l_rec,b_rec);\par
+        Triangle t = new Triangle(l_tri,b_tri);\par
+        Circle c = new Circle(r_cir,r_cir);\par
+        System.out.println("---------------");\par
+        r.printArea();\par
+        t.printArea();\par
+        c.printArea();\par
+    \}\par
+\}\par
+\par
+\ul\b\fs28 LAB PROGRAM : 5\par
+\ulnone\b0\fs24 import java.util.Scanner;\par
+class Account\{\par
+    private String name;\par
+    private int accountNumber;\par
+    private String type;\par
+    public Account(String name,int accountNumber,String type)\{\par
+        this.name=name;\par
+        this.accountNumber=accountNumber;\par
+        this.type=type;\par
+    \}\par
+    public void setName(String name)\{\par
+        this.name=name;\par
+    \}\par
+    public void setAccountNumber(int accountNumber)\{\par
+        this.accountNumber=accountNumber;\par
+    \}\par
+    public void setType(String type)\{\par
+        this.type=type;\par
+    \}\par
+    public String getName()\{\par
+        return this.name;\par
+    \}\par
+    public int getAccountNumber()\{\par
+        return this.accountNumber;\par
+    \}\par
+    public String getType()\{\par
+        return this.type;\par
+    \}\par
+\}\par
+class Curr_acct extends Account\{\par
+    private double balance;\par
+    private boolean checkBook;\par
+    private static double minBalance;\par
+    private static double serviceCharge;\par
+    public static double getServiceCharge()\{\par
+        return serviceCharge;\par
+    \}\par
+    public Curr_acct(String name,int accountNumber,String type,boolean checkBook)\{\par
+        super(name,accountNumber,type);\par
+        this.checkBook=checkBook;\par
+        this.balance=0;\par
+    \}\par
+    static\{\par
+        minBalance=1000.00;\par
+        serviceCharge=5.00;\par
+    \}\par
+    public double getBalance()\{\par
+        return this.balance;\par
+    \}\par
+    public void deposit(double amt)\{\par
+        this.balance+=amt;\par
+    \}\par
+    public int withdraw(double amt)\{\par
+        if(this.balance-amt<minBalance && this.balance-amt>0)\{\par
+            this.balance-=serviceCharge*0.01*amt;\par
+            this.balance-=amt;\par
+            return 1;\par
+        \}if(this.balance-amt<0)\{\par
+            return -1;\par
+        \}\par
+        this.balance-=amt;\par
+        return 2;\par
+    \}\par
+\}\par
+class Sav_acct extends Account\{\par
+    private double balance;\par
+    private static double interestRate;\par
+    public Sav_acct(String name,int accountNumber,String type)\{\par
+        super(name,accountNumber,type);\par
+        this.balance=0;\par
+    \}\par
+    static\{\par
+        interestRate=8.0;\par
+    \}\par
+    public double getBalance()\{\par
+        return this.balance;\par
+    \}\par
+    public void deposit(double amt)\{\par
+        this.balance+=amt;\par
+    \}\par
+    public int withdraw(double amt)\{\par
+        if(this.balance-amt<0)\{\par
+            return -1;\par
+        \}\par
+        this.balance-=amt;\par
+        return 2;\par
+    \}\par
+    public double calculateInterest()\{\par
+        double amt=(this.balance*(1.0+(interestRate*0.01)));\par
+        double interest=amt-this.balance;\par
+        this.balance=amt;\par
+        return interest;\par
+    \}\par
+\}\par
+class BankMain\{\par
+    public static void main(String args[])\{\par
+        Scanner s=new Scanner(System.in);\par
+        System.out.println("Enter the name");\par
+        String name=s.next();\par
+        System.out.println("ENter the account number");\par
+        int accountNumber=s.nextInt();\par
+        System.out.println("Enter the type");\par
+        System.out.println("1.Savings");\par
+        System.out.println("2.Current");\par
+        int type=s.nextInt();\par
+        if(type==2)\{\par
+            System.out.println("Do u want a check book ?? y or n");\par
+            String checkBookString=s.next();\par
+            boolean checkBook;\par
+            if(checkBookString=="y")\par
+                checkBook=true;\par
+            else\par
+                checkBook=false;\par
+            Curr_acct curr_acct=new Curr_acct(name,accountNumber,"Current",checkBook);\par
+            int c;\par
+            do\{\par
+                displayMenu(false);\par
+                c=s.nextInt();\par
+                double amt;\par
+                switch(c)\{\par
+                    case 1:\par
+                        System.out.println("The balance in account is "+curr_acct.getBalance());\par
+                        break;\par
+                    case 2:\par
+                        System.out.println("Enter the amount to deposit");\par
+                        amt=s.nextDouble();\par
+                        curr_acct.deposit(amt);\par
+                        System.out.println("The balance in account is "+curr_acct.getBalance());\par
+                        break;\par
+                    case 3:\par
+                        System.out.println("Enter the amount to withdraw");\par
+                        amt=s.nextDouble();\par
+                        int exp=curr_acct.withdraw(amt);\par
+                        if(exp==1)\par
+                            System.out.println("An service charge of "+(Curr_acct.getServiceCharge()*0.01*amt)+" was deducted");\par
+                        else if(exp==-1)\par
+                            System.out.println("Insufficent Balance");\par
+                        System.out.println("The balance in account is "+curr_acct.getBalance());\par
+                        break;\par
+                    case 5:\par
+                        break;\par
+                    default:\par
+                        System.out.println("Please enter valid choice");\par
+                \}\par
+            \}while(c!=5);\par
+        \}else if(type==1)\{\par
+            Sav_acct sav_acct=new Sav_acct(name,accountNumber,"Savings");\par
+            int c;\par
+            do\{\par
+                displayMenu(true);\par
+                c=s.nextInt();\par
+                double amt;\par
+                switch(c)\{\par
+                    case 1:\par
+                        System.out.println("The balance in account is "+sav_acct.getBalance());\par
+                        break;\par
+                    case 2:\par
+                        System.out.println("Enter the amount to deposit");\par
+                        amt=s.nextDouble();\par
+                        sav_acct.deposit(amt);\par
+                        System.out.println("The balance in account is "+sav_acct.getBalance());\par
+                        break;\par
+                    case 3:\par
+                        System.out.println("Enter the amount to withdraw");\par
+                        amt=s.nextDouble();\par
+                        int exp=sav_acct.withdraw(amt);\par
+                        if(exp==-1)\par
+                            System.out.println("Insufficent Balance");\par
+                        System.out.println("The balance in account is "+sav_acct.getBalance());\par
+                        break;\par
+                    case 4:\par
+                        System.out.println("The interest amount is "+sav_acct.calculateInterest());\par
+                        System.out.println("The balance in account is "+sav_acct.getBalance());\par
+                        break;\par
+                    case 5:\par
+                        break;\par
+                    default:\par
+                        System.out.println("Please enter valid choice");\par
+                \}\par
+            \}while(c!=5);\par
+        \}\par
+    \}\par
+    public static void displayMenu(boolean isSavingsAccount)\{\par
+        System.out.println("1.Check balance");\par
+        System.out.println("2.Deposit Cash");\par
+        System.out.println("3.Withdraw Cash");\par
+        if(isSavingsAccount)\par
+            System.out.println("4.Calculate Interest");\par
+        System.out.println("5.Exit");\par
+        System.out.println("Enter your choice");\par
+    \}\par
+\}\fs28\par
+}
+ 
